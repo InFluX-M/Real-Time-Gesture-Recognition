@@ -8,18 +8,40 @@ This project focuses on developing and implementing a **real-time object detecti
 
 ---
 
+## Data and Project Structure
+
+All project data, including the dataset for training and the `data.yaml` configuration file, are hosted on Google Drive for easy access and collaboration.
+
+### Google Drive Data Structure
+
+The main Google Drive folder, linked as: `https://drive.google.com/drive/folders/1Npll7i7y0y5tb7Yn9G0hIxEsn4U1Bb2f?usp=sharing`, contains the following key components:
+
+* **`Extracted_Files/`**: This directory holds the core dataset and configuration.
+    * **`data.yaml`**: This YAML file defines the dataset's structure, including paths to the training and validation images/labels, and the class names.
+    * **`dataset/`**: This folder contains the image and label files organized for YOLO training.
+        * **`images/`**: Contains the raw image files.
+            * **`train/`**: Training images.
+            * **`val/`**: Validation images.
+        * **`labels/`**: Contains the YOLO-formatted `.txt` label files corresponding to the images.
+            * **`train/`**: Training labels.
+            * **`val/`**: Validation labels.
+* **`results_dl/`**: This directory is intended to store the output of the training process, including saved model weights, training logs, and various performance metrics.
+    * **`exp/`**: A sub-directory created during training to house specific experimental runs.
+
+---
+
 ## Methodology
 
 ### Model Selection and Training
 
 The core of this system is a **YOLOv11n model**, a lightweight yet powerful variant of the YOLO series, chosen for its efficiency and suitability for real-time applications. The model was initialized with pre-trained weights to leverage existing knowledge and accelerate the training process.
 
-The training dataset was meticulously prepared and organized, with images and corresponding labels structured for optimal compatibility with the YOLO framework. The dataset is located at `/content/drive/MyDrive/Extracted_Files/dataset/`. The training configuration utilized specific parameters:
+The training configuration utilized specific parameters:
 
-* **Data Configuration:** The dataset's structure and class mappings were defined in a `data.yaml` file located at `/content/drive/MyDrive/Extracted_Files/data.yaml`.
+* **Data Configuration:** The dataset's structure and class mappings were defined in the `data.yaml` file located within the `Extracted_Files` directory in the Google Drive.
 * **Epochs:** The model was trained for 15 epochs, allowing it to iteratively refine its understanding of the gesture patterns.
 * **Image Size:** Input images were resized to **960x960 pixels** during training to ensure consistent input dimensions and capture fine-grained details.
-* **Project Directory:** All training results, including weights and logs, were systematically saved to `/content/drive/MyDrive/results_dl/exp`.
+* **Project Directory:** All training results, including weights and logs, were systematically saved to the `results_dl/exp` directory within the Google Drive.
 
 ### Real-Time Inference
 
